@@ -1,19 +1,34 @@
 <template>
   <div class="header">
-    <h1>LIGHTS OUT</h1>
-    <div>
-      <button>あそびかた</button>
-      <button @click="reset">さいしょから</button>
-    </div>
+		<div class="inner">
+			<h1>
+				<Icon />
+				<span class="title">LIGHTS OUT</span>
+			</h1>
+
+			<div>
+				<button @click="showModal">あそびかた</button>
+				<button @click="reset">さいしょから</button>
+			</div>
+		</div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
 
+import Icon from './Icon.vue';
+
 export default defineComponent({
   name: 'Header',
+  components: {
+    Icon
+  },
   props: {
+		showModal: {
+			type: Function,
+			default: () => {}
+		},
     reset: {
       type: Function,
       default: () => {}
@@ -29,21 +44,25 @@ export default defineComponent({
 
 <style scoped>
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem;
   background: var(--white);
 }
 
+.inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+	max-width: var(--width);
+	margin: auto;
+}
+
 h1 {
+	display: flex;
+	align-items: center;
   font-size: 1.5rem;
 }
 
-button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
+.title {
+	margin-left: 10px;
 }
 </style>

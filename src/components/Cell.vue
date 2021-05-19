@@ -1,7 +1,7 @@
 <template>
   <button
     class="cell"
-    :class="`${isActive} ${allChecked}`"
+    :class="`${status  } ${allChecked}`"
     :style="
       `width: calc(100% / ${size}); height: 100%);`
     "
@@ -13,7 +13,7 @@
 import { defineComponent, computed } from 'vue'
 
 type Props = {
-  isActive: boolean,
+  status  : boolean,
   allChecked: boolean,
   size: number
 }
@@ -24,7 +24,7 @@ export default defineComponent({
       type: Function,
       default: () => {}
     },
-    isActive: {
+    status  : {
       type: Boolean,
       default: false
     },
@@ -39,11 +39,11 @@ export default defineComponent({
   },
 
   setup: (props: Props) => {
-    const isActive = computed(() => props.isActive ? 'is-active' : '')
+    const status   = computed(() => props.status   ? 'truthy' : '')
     const allChecked = computed(() => props.allChecked ? 'all-checked' : '')
 
     return {
-      isActive,
+      status  ,
       allChecked,
       size: props.size
     }
@@ -52,27 +52,20 @@ export default defineComponent({
 </script>
 
 <style scoped>
-button {
-  background: none;
-  border: none;
-  padding: 0;
-  margin: 0;
-}
-
 .cell {
   position: relative;
   background: var(--blue); 
-  border-radius: 6%;
+  border-radius: var(--radius);
   margin: 4px;
+  transition-timing-function: ease-out;
   transition-duration: 0.15s;
-  cursor: pointer;
 }
 
-.is-active {
+.truthy {
   background: var(--orange);
 }
 
-.is-active:after {
+.truthy:after {
   content: "";
   position: absolute;
   width: 100%;

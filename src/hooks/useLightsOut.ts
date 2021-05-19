@@ -6,13 +6,15 @@ type Row = [] | Cell[]
 type Board = [] | Row[]
 type State = {
   board: Board,
-  size: number
+  size: number,
+	steps: number
 }
 
 export function useLightsOut () {
   const state: State = reactive({
     board: [],
-    size: 3
+    size: 5,
+    steps: 0
   })
 
   const allChecked = computed(() => state.board.flat().every((cell: Cell) => cell.status === true))
@@ -47,6 +49,7 @@ export function useLightsOut () {
 
   const init = () => {
     state.board = createBoard()
+    state.steps = 0
   }
 
   const update = (yi: number, xi: number) => {
@@ -67,6 +70,8 @@ export function useLightsOut () {
     if (state.board[yi][xi + 1]) {
       state.board[yi][xi + 1].status = !state.board[yi][xi + 1].status
     }
+
+    state.steps++
   }
 
   const updateSize = (size: number) => {
@@ -76,9 +81,9 @@ export function useLightsOut () {
 
   return {
     ...toRefs(state),
+    allChecked,
     init,
     update,
-    allChecked,
     updateSize
   }
 }
