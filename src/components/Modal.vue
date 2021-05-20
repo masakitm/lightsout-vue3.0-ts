@@ -22,7 +22,7 @@
 				/>
 			</p>
 			
-			<p>全部のボタンをオレンジにするとクリアです！</p>
+			<p>全部のボタンを<span>オレンジ</span>にするとクリアです！</p>
 		</div>
 	</div>
 </div>
@@ -123,6 +123,11 @@ export default defineComponent({
 
 p {
 	margin-top: 2rem;
+}
+
+span {
+	color: var(--orange);
+	font-weight: bold;
 }
 
 .figure {

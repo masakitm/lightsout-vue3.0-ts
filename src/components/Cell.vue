@@ -58,7 +58,7 @@ export default defineComponent({
   border-radius: var(--radius);
   margin: 4px;
   transition-timing-function: ease-out;
-  transition-duration: 0.15s;
+  transition-duration: 0.1s;
 }
 
 .truthy {
@@ -72,6 +72,6 @@ export default defineComponent({
   height: 100%;
   top: 0;
   left: 0;
-  background: linear-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0));
+  background: radial-gradient(rgba(255,255,255,0.15), rgba(255,255,255,0));
 }
 </style>
