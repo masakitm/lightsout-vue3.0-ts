@@ -1,16 +1,16 @@
 <template>
   <div class="header">
-		<div class="inner">
-			<h1>
-				<Icon />
-				<span class="title">LIGHTS OUT</span>
-			</h1>
+    <div class="inner">
+      <h1>
+        <Icon />
+        <span class="title">LIGHTS OUT</span>
+      </h1>
 
-			<div>
-				<button @click="showModal">あそびかた</button>
-				<button @click="reset">さいしょから</button>
-			</div>
-		</div>
+      <div>
+        <button @click="showModal">あそびかた</button>
+        <button @click="reset">さいしょから</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -25,10 +25,10 @@ export default defineComponent({
     Icon
   },
   props: {
-		showModal: {
-			type: Function,
-			default: () => {}
-		},
+    showModal: {
+      type: Function,
+      default: () => {}
+    },
     reset: {
       type: Function,
       default: () => {}
@@ -52,17 +52,17 @@ export default defineComponent({
   display: flex;
   justify-content: space-between;
   align-items: center;
-	max-width: var(--width);
-	margin: auto;
+  max-width: var(--width);
+  margin: auto;
 }
 
 h1 {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
   font-size: 1.5rem;
 }
 
 .title {
-	margin-left: 10px;
+  margin-left: 10px;
 }
 </style>

@@ -18,7 +18,7 @@
         :key="cell.id"
         :click="() => update(yIndex, xIndex)"
         :size="size"
-        :status  ="cell.status"
+        :status="cell.status"
       />
     </div>
   </div>
@@ -28,9 +28,17 @@
   </div>
 
   <div class="buttons">
-    <button class="button" v-if="size === 3" @click="() => updateSize(5)">かんたん</button>
-    <button class="button" v-if="size === 5" @click="() => updateSize(8)">むずかしい</button>
-    <button class="button" v-if="size === 8" @click="() => updateSize(3)">激ムズ</button>
+    <button class="button" v-if="size === 3" @click="() => updateSize(5)">
+      かんたん<div class="button_icon">▶</div>
+    </button>
+    
+    <button class="button" v-if="size === 5" @click="() => updateSize(8)">
+      むずかしい<div class="button_icon">▶</div>
+    </button>
+    
+    <button class="button" v-if="size === 8" @click="() => updateSize(3)">
+      激ムズ<div class="button_icon">▶</div>
+    </button>
   </div>
 
   <Modal
@@ -100,6 +108,39 @@ export default defineComponent({
   margin-top: 1rem;
   padding: 1rem;
   border-top: 1px solid var(--white);
+}
+
+.button {
+  position: relative;
+}
+
+.button_icon {
+  position: absolute;
+  top: 50%;
+  right: -1.2rem;
+  font-size: 0.5rem;
+  transform: translate(0%, -50%);
+  animation-name: buttonIcon;
+  animation-iteration-count: infinite;
+  animation-duration: 1.5s;
+  opacity: 1;
+}
+
+@keyframes buttonIcon {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%);
+  }
+
+  50% {
+    opacity: 1;
+    transform: translate(0, -50%);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(50%, -50%);
+  }
 }
 
 .button {

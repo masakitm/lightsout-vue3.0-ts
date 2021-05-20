@@ -1,7 +1,7 @@
 <template>
   <button
     class="cell"
-    :class="`${status  } ${allChecked}`"
+    :class="`${status} ${allChecked}`"
     :style="
       `width: calc(100% / ${size}); height: 100%);`
     "

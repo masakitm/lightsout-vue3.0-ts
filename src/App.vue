@@ -61,6 +61,6 @@ button {
 }
 
 button:not(:first-child) {
-	margin-left: 1rem;
+  margin-left: 1rem;
 }
 </style>

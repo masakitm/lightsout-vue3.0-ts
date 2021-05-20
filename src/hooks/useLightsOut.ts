@@ -7,7 +7,7 @@ type Board = [] | Row[]
 type State = {
   board: Board,
   size: number,
-	steps: number
+  steps: number
 }
 
 export function useLightsOut () {
@@ -48,7 +48,13 @@ export function useLightsOut () {
   }
 
   const init = () => {
-    state.board = createBoard()
+    let board = createBoard()
+    
+    if (board.flat().every((cell: Cell) => cell.status === true)) {
+      board = createBoard()
+    }
+
+    state.board = board
     state.steps = 0
   }
 
