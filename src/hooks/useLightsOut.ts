@@ -1,5 +1,6 @@
 // lightsout
 import { reactive, computed, toRefs } from 'vue'
+import { BOARD_SIZES } from '../consts'
 
 type Cell = { status: boolean, id: number }
 type Row = [] | Cell[]
@@ -13,7 +14,7 @@ type State = {
 export function useLightsOut () {
   const state: State = reactive({
     board: [],
-    size: 5,
+    size: BOARD_SIZES[0],
     steps: 0
   })
 
@@ -49,7 +50,8 @@ export function useLightsOut () {
 
   const init = () => {
     let board = createBoard()
-    
+
+    // 初期化時に完成していたらやりなおし
     if (board.flat().every((cell: Cell) => cell.status === true)) {
       board = createBoard()
     }

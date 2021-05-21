@@ -2,9 +2,7 @@
   <button
     class="cell"
     :class="`${status} ${allChecked}`"
-    :style="
-      `width: calc(100% / ${size}); height: 100%);`
-    "
+    :style="`width: calc(100% / ${size}); height: 100%);`"
     @click="click"
   ></button>
 </template>
@@ -39,11 +37,11 @@ export default defineComponent({
   },
 
   setup: (props: Props) => {
-    const status   = computed(() => props.status   ? 'truthy' : '')
+    const status = computed(() => props.status ? 'truthy' : '')
     const allChecked = computed(() => props.allChecked ? 'all-checked' : '')
 
     return {
-      status  ,
+      status,
       allChecked,
       size: props.size
     }

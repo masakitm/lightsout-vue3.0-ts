@@ -21,9 +21,11 @@ import Icon from './Icon.vue';
 
 export default defineComponent({
   name: 'Header',
+  
   components: {
     Icon
   },
+
   props: {
     showModal: {
       type: Function,
@@ -34,6 +36,7 @@ export default defineComponent({
       default: () => {}
     }
   },
+
   setup: props => {
     return {
       ...props

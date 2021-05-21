@@ -28,16 +28,16 @@
   </div>
 
   <div class="buttons">
-    <button class="button" v-if="size === 3" @click="() => updateSize(5)">
+    <button class="button" v-if="size === BOARD_SIZES[0]" @click="() => updateSize(BOARD_SIZES[1])">
       かんたん<div class="button_icon">▶</div>
     </button>
     
-    <button class="button" v-if="size === 5" @click="() => updateSize(8)">
+    <button class="button" v-if="size === BOARD_SIZES[1]" @click="() => updateSize(BOARD_SIZES[2])">
       むずかしい<div class="button_icon">▶</div>
     </button>
     
-    <button class="button" v-if="size === 8" @click="() => updateSize(3)">
-      激ムズ<div class="button_icon">▶</div>
+    <button class="button" v-if="size === BOARD_SIZES[2]" @click="() => updateSize(BOARD_SIZES[0])">
+      オニ<div class="button_icon">▶</div>
     </button>
   </div>
 
@@ -56,6 +56,8 @@ import Cell from './Cell.vue'
 import Header from './Header.vue'
 import Modal from './Modal.vue'
 
+import { BOARD_SIZES } from '../consts'
+
 export default defineComponent({
   name: 'LightsOut',
   
@@ -72,9 +74,12 @@ export default defineComponent({
     onMounted(() => init())
 
     return {
+      BOARD_SIZES,
+      
       board,
       size,
       steps,
+      
       update,
       updateSize,
       init,
