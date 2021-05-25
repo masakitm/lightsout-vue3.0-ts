@@ -28,17 +28,22 @@
   </div>
 
   <div class="buttons">
-    <button class="button" v-if="size === BOARD_SIZES[0]" @click="() => updateSize(BOARD_SIZES[1])">
-      かんたん<div class="button_icon">▶</div>
-    </button>
-    
-    <button class="button" v-if="size === BOARD_SIZES[1]" @click="() => updateSize(BOARD_SIZES[2])">
-      むずかしい<div class="button_icon">▶</div>
-    </button>
-    
-    <button class="button" v-if="size === BOARD_SIZES[2]" @click="() => updateSize(BOARD_SIZES[0])">
-      オニ<div class="button_icon">▶</div>
-    </button>
+    <template
+      v-for="(item, i) in BOARD_SIZES"
+    >
+      <button
+        class="button"
+        :key="item.name"
+        v-if="size === BOARD_SIZES[i].value" 
+        @click="() => updateSize(
+          BOARD_SIZES[i + 1]
+            ? BOARD_SIZES[i + 1].value 
+            : BOARD_SIZES[0].value
+        )
+      ">
+        {{ item.name }} <div class="button_icon">▶</div>
+      </button>
+    </template>
   </div>
 
   <Modal
@@ -75,7 +80,7 @@ export default defineComponent({
 
     return {
       BOARD_SIZES,
-      
+
       board,
       size,
       steps,
@@ -117,6 +122,7 @@ export default defineComponent({
 
 .button {
   position: relative;
+  font-weight: bold;
 }
 
 .button_icon {

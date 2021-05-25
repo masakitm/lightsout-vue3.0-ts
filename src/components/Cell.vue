@@ -11,7 +11,7 @@
 import { defineComponent, computed } from 'vue'
 
 type Props = {
-  status  : boolean,
+  status: boolean,
   allChecked: boolean,
   size: number
 }
@@ -22,14 +22,17 @@ export default defineComponent({
       type: Function,
       default: () => {}
     },
-    status  : {
+    
+    status : {
       type: Boolean,
       default: false
     },
+
     allChecked: {
       type: Boolean,
       default: false
     },
+    
     size: {
       type: Number,
       default: 8
@@ -37,8 +40,8 @@ export default defineComponent({
   },
 
   setup: (props: Props) => {
-    const status = computed(() => props.status ? 'truthy' : '')
-    const allChecked = computed(() => props.allChecked ? 'all-checked' : '')
+    const status: ComputedRef<"truthy" | ""> = computed(() => props.status ? 'truthy' : '')
+    const allChecked: ComputedRef<"all-checked" | ""> = computed(() => props.allChecked ? 'all-checked' : '')
 
     return {
       status,
@@ -57,6 +60,7 @@ export default defineComponent({
   margin: 4px;
   transition-timing-function: ease-out;
   transition-duration: 0.1s;
+  box-shadow: 0 2px 4px rgb(67 133 187 / 7%);
 }
 
 .truthy {

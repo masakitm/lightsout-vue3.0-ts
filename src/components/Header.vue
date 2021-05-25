@@ -19,6 +19,11 @@ import { defineComponent } from 'vue'
 
 import Icon from './Icon.vue';
 
+type Props = {
+  showModal: Function,
+  reset: Function
+}
+
 export default defineComponent({
   name: 'Header',
   
@@ -31,13 +36,14 @@ export default defineComponent({
       type: Function,
       default: () => {}
     },
+    
     reset: {
       type: Function,
       default: () => {}
     }
   },
 
-  setup: props => {
+  setup: (props: Props) => {
     return {
       ...props
     }

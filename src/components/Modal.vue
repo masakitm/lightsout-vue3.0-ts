@@ -28,7 +28,7 @@
 </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
 import Icon from './Icon.vue'
 
@@ -38,11 +38,13 @@ export default defineComponent({
       type: Boolean,
       default: false
     },
+
     click: {
       type: Function,
       default: () => {}
     }
   },
+  
   components: {
     Icon
   }

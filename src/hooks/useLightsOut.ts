@@ -14,7 +14,7 @@ type State = {
 export function useLightsOut () {
   const state: State = reactive({
     board: [],
-    size: BOARD_SIZES[0],
+    size: BOARD_SIZES[0].value,
     steps: 0
   })
 

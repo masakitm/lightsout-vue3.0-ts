@@ -1,7 +1,7 @@
 <template>
   <div class="icon">
     <div
-      v-for="item in 9"
+      v-for="item in ICON_CELLS"
       :key="`icon_cell-${item}`"
       class="cell"
       :class="coloredCells.includes(item) && 'colored'"
@@ -9,14 +9,20 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 import { defineComponent } from 'vue'
+import { ICON_CELLS } from '../consts'
 
 export default defineComponent({
   props: {
     coloredCells: {
       type: Array,
       default: [5,8,9]
+    }
+  },
+  setup() {
+    return {
+      ICON_CELLS
     }
   }
 })
