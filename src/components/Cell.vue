@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType, computed } from 'vue'
+import { defineComponent, PropType, computed, ComputedRef } from 'vue'
 
 type Props = {
   status: boolean,
@@ -41,8 +41,8 @@ export default defineComponent({
   },
 
   setup: (props: Props): any => {
-    const status = computed<"truthy" | "">(() => props.status ? 'truthy' : '')
-    const allChecked = computed<"all-checked" | "">(() => props.allChecked ? 'all-checked' : '')
+    const status: ComputedRef<"truthy" | ""> = computed(() => props.status ? 'truthy' : '')
+    const allChecked: ComputedRef<"all-checked" | ""> = computed(() => props.allChecked ? 'all-checked' : '')
 
     return {
       status,
