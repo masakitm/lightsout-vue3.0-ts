@@ -15,7 +15,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, PropType } from 'vue'
 import { TITLE } from '../consts'
 
 import Icon from './Icon.vue';
@@ -34,12 +34,12 @@ export default defineComponent({
 
   props: {
     showModal: {
-      type: Function,
+      type: Function as PropType<() => void>,
       default: () => {}
     },
     
     reset: {
-      type: Function,
+      type: Function as PropType<() => void>,
       default: () => {}
     }
   },
