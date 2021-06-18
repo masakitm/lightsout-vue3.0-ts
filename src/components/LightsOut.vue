@@ -41,7 +41,7 @@
             : BOARD_SIZES[0].value
         )
       ">
-        {{ item.name }} <div class="button_icon">▶</div>
+        {{ item.name }} <IconArrow />
       </button>
     </template>
   </div>
@@ -49,6 +49,10 @@
   <Modal
     :show="showModal"
     :click="toggleModal"
+  />
+
+  <Congrats
+    v-if="allChecked"
   />
 </template>
 
@@ -60,6 +64,8 @@ import { useModal } from '../hooks/useModal'
 import Cell from './Cell.vue'
 import Header from './Header.vue'
 import Modal from './Modal.vue'
+import Congrats from './Congrats.vue'
+import IconArrow from './IconArrow.vue'
 
 import { BOARD_SIZES } from '../consts'
 
@@ -69,7 +75,9 @@ export default defineComponent({
   components: {
     Header,
     Cell,
-    Modal
+    Modal,
+    Congrats,
+    IconArrow
   },
 
   setup: () => {
@@ -122,35 +130,6 @@ export default defineComponent({
 
 .button {
   position: relative;
-}
-
-.button_icon {
-  position: absolute;
-  top: 50%;
-  right: -1.2rem;
-  font-size: 0.5rem;
-  transform: translate(0%, -50%);
-  animation-name: buttonIcon;
-  animation-iteration-count: infinite;
-  animation-duration: 1.5s;
-  opacity: 1;
-}
-
-@keyframes buttonIcon {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%);
-  }
-
-  50% {
-    opacity: 1;
-    transform: translate(0, -50%);
-  }
-
-  100% {
-    opacity: 0;
-    transform: translate(50%, -50%);
-  }
 }
 
 .button {

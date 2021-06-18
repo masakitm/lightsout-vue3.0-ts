@@ -2,14 +2,14 @@
 <div 
   class="modal"
   @click="click"
-  :style="`display: ${show  ? 'block' : 'none'};`"
+  :style="`display: ${show ? 'block' : 'none'};`"
 >
   <div class="inner">
     <div>
       <h2>あそびかた</h2>
       <p>
-        ボタンをおしてみましょう。<br>
-        おしたボタンと、上下左右4つの色が反転します。
+        パネルをおしてみましょう。<br>
+        おしたパネルと、上下左右4つの色が反転します。
       </p>
 
       <p class="figure">
@@ -22,7 +22,7 @@
         />
       </p>
       
-      <p>全部のボタンを<span>オレンジ</span>にするとクリアです！</p>
+      <p>全部のパネルを<span>オレンジ</span>にするとクリアです！</p>
     </div>
   </div>
 </div>

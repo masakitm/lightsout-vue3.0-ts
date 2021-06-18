@@ -11,6 +11,8 @@ type State = {
   steps: number
 }
 
+const isCleared = (board: Board): boolean => board.flat().every((cell: Cell) => cell.status === true)
+
 export function useLightsOut () {
   const state: State = reactive({
     board: [],
@@ -18,8 +20,8 @@ export function useLightsOut () {
     steps: 0
   })
 
-  const allChecked = computed(() => state.board.flat().every((cell: Cell) => cell.status === true))
-  
+  const allChecked = computed(() => isCleared(state.board))
+
   let id = 0
   
   const createRow = (): Row => {
@@ -51,8 +53,9 @@ export function useLightsOut () {
   const init = () => {
     let board = createBoard()
 
-    // 初期化時に完成していたら再試行
-    if (board.flat().every((cell: Cell) => cell.status === true)) {
+    // クリア条件を満たしたら再試行する
+    // TODO: 2連続以上で満たした場合をカバーする
+    if (isCleared(board)) {
       board = createBoard()
     }
 

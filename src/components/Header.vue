@@ -3,7 +3,7 @@
     <div class="inner">
       <h1>
         <Icon />
-        <span class="title">LIGHT PUZZLE</span>
+        <span class="title">{{ TITLE }}</span>
       </h1>
 
       <div>
@@ -16,6 +16,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import { TITLE } from '../consts'
 
 import Icon from './Icon.vue';
 
@@ -41,6 +42,10 @@ export default defineComponent({
       type: Function,
       default: () => {}
     }
+  },
+
+  computed: {
+    TITLE: () => TITLE
   },
 
   setup: (props: Props) => {

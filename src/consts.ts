@@ -1,3 +1,5 @@
+export const TITLE = "PANEL FLIPS"
+
 export const BOARD_SIZES = Object.freeze([
 	{
 		name: 'かんたん',

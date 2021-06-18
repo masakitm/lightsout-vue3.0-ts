@@ -1,11 +1,13 @@
 <template>
-  <div class="icon">
-    <div
-      v-for="item in ICON_CELLS"
-      :key="`icon_cell-${item}`"
-      class="cell"
-      :class="coloredCells.includes(item) && 'colored'"
-    ></div>
+  <div class="container">
+    <div class="icon">
+      <div
+        v-for="item in ICON_CELLS"
+        :key="`icon_cell-${item}`"
+        class="cell"
+        :class="coloredCells.includes(item) && 'colored'"
+      ></div>
+    </div>
   </div>
 </template>
 
@@ -29,6 +31,10 @@ export default defineComponent({
 </script>
 
 <style scoped>
+.container {
+  display: inline-block;
+}
+
 .icon {
   display: grid;
   grid-template-columns: 10px 10px 10px;
