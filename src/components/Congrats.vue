@@ -11,7 +11,7 @@
           次のステージにチャレンジしてみましょう<br>
         </p>
         <Icon
-          :coloredCells="[1,2,3,4,5,6,7,8,9]"
+          :coloredCells="cells"
         />
       </div>
 
@@ -20,7 +20,7 @@
       >
         <p class="mb1">パズルマスターです！おめでとう！</p>
         <Icon
-          :coloredCells="[1,2,3,4,5,6,7,8,9]"
+          :coloredCells="cells"
         />
       </div>
     </div>
@@ -28,8 +28,10 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import Icon from './Icon.vue'
+
+const cells = [1,2,3,4,5,6,7,8,9]
 
 export default defineComponent({
   name: 'Congrats',
@@ -45,11 +47,9 @@ export default defineComponent({
     }
   },
   
-  setup(props) {
-    const { isLastStage } = props
-
+  setup() {
     return {
-      isLastStage
+      cells
     }
   }
 })

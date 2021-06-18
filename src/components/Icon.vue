@@ -2,6 +2,7 @@
   <div class="container">
     <div class="icon">
       <div
+        :style="{width: `${size}px`, height: `${size}px`}"
         v-for="item in ICON_CELLS"
         :key="`icon_cell-${item}`"
         class="cell"
@@ -20,6 +21,11 @@ export default defineComponent({
     coloredCells: {
       type: Array,
       default: [5,8,9]
+    },
+
+    size: {
+      type: Number,
+      default: 6
     }
   },
   
@@ -42,8 +48,6 @@ export default defineComponent({
 }
 
 .cell {
-  width: 6px;
-  height: 6px;
   margin: 2px;
   border-radius: var(--radius);
   background: var(--blue);

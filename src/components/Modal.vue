@@ -9,7 +9,7 @@
       <h2>あそびかた</h2>
       <p>
         パネルをおしてみましょう。<br>
-        おしたパネルと、上下左右4つの色が反転します。
+        おしたところと、上下左右4つの色が反転します。
       </p>
 
       <p class="figure">
@@ -22,7 +22,9 @@
         />
       </p>
       
-      <p>全部のパネルを<span>オレンジ</span>にするとクリアです！</p>
+      <p>
+          全部の<span class="blue">パネル</span>を<span class="orange">オレンジ</span>にすればクリアです！
+      </p>
     </div>
   </div>
 </div>
@@ -128,8 +130,13 @@ p {
   margin-top: 2rem;
 }
 
-span {
+.orange {
   color: var(--orange);
+  font-weight: bold;
+}
+
+.blue {
+  color: var(--blue);
   font-weight: bold;
 }
 
