@@ -8,18 +8,19 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, computed } from 'vue'
+import { defineComponent, PropType, computed, ComputedRef } from 'vue'
 
 type Props = {
   status: boolean,
   allChecked: boolean,
-  size: number
+  size: number,
+  click: () => void
 }
 
 export default defineComponent({
   props: {
     click: {
-      type: Function,
+      type: Function as PropType<() => void>,
       default: () => {}
     },
     
@@ -39,14 +40,15 @@ export default defineComponent({
     }
   },
 
-  setup: (props: Props) => {
+  setup: (props: Props): any => {
     const status: ComputedRef<"truthy" | ""> = computed(() => props.status ? 'truthy' : '')
     const allChecked: ComputedRef<"all-checked" | ""> = computed(() => props.allChecked ? 'all-checked' : '')
 
     return {
       status,
       allChecked,
-      size: props.size
+      size: props.size,
+      click: props.click
     }
   }
 })
