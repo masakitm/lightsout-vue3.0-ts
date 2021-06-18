@@ -1,12 +1,11 @@
 <template>
-<div class="congrats">
   <div class="contents">
-    <h2 class="mb1">ステージクリア！</h2>
+    <div class="congrats">
+      <h2 class="mb1">ステージクリア！</h2>
 
-    <template
-      v-if="!isLastStage"
-    >
-      <div>
+      <div
+        v-if="!isLastStage"
+      >
         <p class="mb1">
           おめでとう！<br>
           次のステージにチャレンジしてみましょう<br>
@@ -15,20 +14,17 @@
           :coloredCells="[1,2,3,4,5,6,7,8,9]"
         />
       </div>
-    </template>
 
-    <template
-      v-if="isLastStage"
-    >
-      <div>
+      <div
+        v-if="isLastStage"
+      >
         <p class="mb1">パズルマスターです！おめでとう！</p>
         <Icon
           :coloredCells="[1,2,3,4,5,6,7,8,9]"
         />
       </div>
-    </template>
+    </div>
   </div>
-</div>
 </template>
 
 <script lang="ts">
@@ -65,24 +61,41 @@ export default defineComponent({
 }
 
 .congrats {
-  display: flex;
-  align-items: center;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  opacity: 1;
+  animation-name: fadeIn;
+  animation-duration: 1.2s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 
 .contents {
-  display: flex;
-  align-items: center;
   width: 100%;
   overflow: hidden;
   background: rgba(255, 255, 255, 0.97);
   animation-name: sizeScale;
   animation-duration: 1s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 35vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 @keyframes sizeScale {
@@ -96,14 +109,18 @@ export default defineComponent({
     width: 0px;
   }
 
-  50% {
+  30% {
     width: 100%;
+    height: 2px;
+  }
+
+  50% {
     height: 2px;
   }
 
   100% {
     padding: 3rem 0;
-    height: auto;
+    height: 35vh;
   }
 }
 </style>
