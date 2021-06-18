@@ -27,25 +27,6 @@
     おした数: <span class="count">{{ steps }}</span>
   </div>
 
-  <div class="buttons">
-    <template
-      v-for="(item, i) in BOARD_SIZES"
-    >
-      <button
-        class="button"
-        :key="item.name"
-        v-if="size === BOARD_SIZES[i].value" 
-        @click="() => updateSize(
-          BOARD_SIZES[i + 1]
-            ? BOARD_SIZES[i + 1].value 
-            : BOARD_SIZES[0].value
-        )
-      ">
-        {{ item.name }} <IconArrow />
-      </button>
-    </template>
-  </div>
-
   <Modal
     :show="showModal"
     :click="toggleModal"
@@ -53,6 +34,11 @@
 
   <Congrats
     v-if="allChecked"
+  />
+
+  <Footer 
+    :size="size"
+    :click="updateSize"
   />
 </template>
 
@@ -65,9 +51,7 @@ import Cell from './Cell.vue'
 import Header from './Header.vue'
 import Modal from './Modal.vue'
 import Congrats from './Congrats.vue'
-import IconArrow from './IconArrow.vue'
-
-import { BOARD_SIZES } from '../consts'
+import Footer from './Footer.vue'
 
 export default defineComponent({
   name: 'LightsOut',
@@ -77,7 +61,7 @@ export default defineComponent({
     Cell,
     Modal,
     Congrats,
-    IconArrow
+    Footer
   },
 
   setup: () => {
@@ -87,8 +71,6 @@ export default defineComponent({
     onMounted(() => init())
 
     return {
-      BOARD_SIZES,
-
       board,
       size,
       steps,
@@ -115,25 +97,6 @@ export default defineComponent({
 .row {
   display: flex;
   justify-content: center;
-}
-
-.buttons {
-  position: absolute;
-  width: 100%;
-  bottom: 0;
-  left: 0;
-  
-  margin-top: 1rem;
-  padding: 1rem;
-  background: var(--white);
-}
-
-.button {
-  position: relative;
-}
-
-.button {
-  font-size: 1.2rem;
 }
 
 .steps {

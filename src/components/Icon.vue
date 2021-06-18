@@ -22,6 +22,7 @@ export default defineComponent({
       default: [5,8,9]
     }
   },
+  
   setup() {
     return {
       ICON_CELLS

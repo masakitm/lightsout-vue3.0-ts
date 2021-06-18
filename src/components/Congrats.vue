@@ -6,20 +6,26 @@
     <template
       v-if="!isLastStage"
     >
-      <p class="mb1">
-        おめでとう！<br>
-        次のステージにチャレンジしてみよう
-      </p>
-
-      <Icon
-        :coloredCells="[1,2,3,4,5,6,7,8,9]"
-      />
+      <div>
+        <p class="mb1">
+          おめでとう！<br>
+          次のステージにチャレンジしてみましょう<br>
+        </p>
+        <Icon
+          :coloredCells="[1,2,3,4,5,6,7,8,9]"
+        />
+      </div>
     </template>
 
     <template
       v-if="isLastStage"
     >
-      パズルマスターです！おめでとう！
+      <div>
+        <p class="mb1">パズルマスターです！おめでとう！</p>
+        <Icon
+          :coloredCells="[1,2,3,4,5,6,7,8,9]"
+        />
+      </div>
     </template>
   </div>
 </div>
@@ -70,14 +76,18 @@ export default defineComponent({
 }
 
 .contents {
+  display: flex;
+  align-items: center;
   width: 100%;
-  padding: 3rem 0;
-  background: rgba(255, 255, 255, 0.97)
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.97);
+  animation-name: sizeScale;
+  animation-duration: 1s;
 }
 
 @keyframes sizeScale {
   0% {
-    width:0px;
+    width: 0px;
     height: 0px;
   }
 
@@ -87,12 +97,13 @@ export default defineComponent({
   }
 
   50% {
-    width: var(--modalWidth);
+    width: 100%;
     height: 2px;
   }
 
   100% {
-    height: var(--modalHeight);
+    padding: 3rem 0;
+    height: auto;
   }
 }
 </style>
