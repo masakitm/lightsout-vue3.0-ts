@@ -3,7 +3,7 @@
     <div class="inner">
       <h1>
         <Icon />
-        <span class="title">LIGHTS OUT</span>
+        <span class="title">LIGHT PUZZLE</span>
       </h1>
 
       <div>

@@ -51,7 +51,7 @@ export function useLightsOut () {
   const init = () => {
     let board = createBoard()
 
-    // 初期化時に完成していたらやりなおし
+    // 初期化時に完成していたら再試行
     if (board.flat().every((cell: Cell) => cell.status === true)) {
       board = createBoard()
     }

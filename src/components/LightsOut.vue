@@ -24,7 +24,7 @@
   </div>
 
   <div class="steps">
-    おした回数: {{ steps }}
+    おした数: <span class="count">{{ steps }}</span>
   </div>
 
   <div class="buttons">
@@ -117,12 +117,11 @@ export default defineComponent({
   
   margin-top: 1rem;
   padding: 1rem;
-  border-top: 1px solid var(--white);
+  background: var(--white);
 }
 
 .button {
   position: relative;
-  font-weight: bold;
 }
 
 .button_icon {
@@ -160,5 +159,9 @@ export default defineComponent({
 
 .steps {
   margin-top: 1rem;
+}
+
+.count {
+  font-weight: 700;
 }
 </style>

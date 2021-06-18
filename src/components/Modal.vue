@@ -62,11 +62,11 @@ export default defineComponent({
   align-items: center;
   justify-content: center;
 
-  width: 55vh;
+  width: 60vh;
   height: 40vh;
 
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.97);
 
   overflow: hidden;
   cursor: pointer;

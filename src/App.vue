@@ -32,7 +32,9 @@ export default defineComponent({
 }
 
 html, body {
+  min-width: 660px;
   height: 100%;
+  min-height: 800px;
   background: var(--gray);
   color: var(--text);
 }
